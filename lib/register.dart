@@ -16,7 +16,7 @@ void addAkun(){
   var url = "https://bayucrud.000webhostapp.com/addakun.php";
   http.post(Uri.parse(url), body: {
     "userakun": txtRusername.text,
-    "passakun": txtPassword.text
+    "passakun": txtRpassword.text
   });
 }
 
