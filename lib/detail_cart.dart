@@ -19,6 +19,19 @@ class DetailCart extends StatefulWidget {
 class _DetailCartState extends State<DetailCart> {
     TextEditingController controllerUpdate = new TextEditingController();
 
+    Widget buildTitle(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text('Shoe App',
+        style: TextStyle(
+          color:  Colors.black54, fontSize: 24, fontWeight: FontWeight.bold
+        ),
+        )
+      ],
+    );
+  }
+
 
   void deleteData(){
     var url = "https://bayucrud.000webhostapp.com/delete.php";
@@ -63,6 +76,17 @@ void initState(){
             deleteData();
             Navigator.push(
               context, MaterialPageRoute(builder: (context) => new CartPage()),);
+              
+          }),
+          new MaterialButton(
+            child: new Text("KEMBALI",
+            style: new TextStyle(color: Colors.black),),
+            color: Colors.green,
+          onPressed: (){
+            deleteData();
+            Navigator.push(
+              context, MaterialPageRoute(builder: (context) => new CartPage()),);
+              
           })
       ],
     );
@@ -98,15 +122,14 @@ void initState(){
   Widget build(BuildContext context) {
     return new Scaffold(
       resizeToAvoidBottomInset: false,
-      // appBar: AppBar(
-      //   title: new Text("${widget.list[widget.index]['merk']}"),
-      // ),
       body: new SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
         child: Card(
           child: new Center(
             child: new Column(
               children: <Widget>[
+                SizedBox(),
+                buildTitle(),
                 new Padding(padding: const EdgeInsets.only(top: 20.0)),
                 new Text(
                   "${widget.list[widget.index]['merk']}",
