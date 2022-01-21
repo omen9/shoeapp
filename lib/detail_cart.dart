@@ -41,8 +41,8 @@ class _DetailCartState extends State<DetailCart> {
     });
 
     Fluttertoast.showToast(
-      msg: "Berita" + widget.list[widget.index]["merk"] +
-      "berhasil dihapus",
+      msg: widget.list[widget.index]["merk"] +
+      " berhasil dihapus",
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM);
   }
@@ -53,6 +53,12 @@ class _DetailCartState extends State<DetailCart> {
     http.post(Uri.parse(url),
     body: {"idbarang" : widget.list[widget.index]['id'],
         "edsize" : controllerUpdate.text});
+
+        Fluttertoast.showToast(
+      msg: widget.list[widget.index]["merk"] +
+      " berhasil di Update",
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM);
   }
 
   @override 
@@ -70,7 +76,7 @@ void initState(){
       actions: <Widget>[
         new MaterialButton(
             child: new Text("HAPUS!",
-            style: new TextStyle(color: Colors.black),),
+            style: new TextStyle(color: Colors.white),),
             color: Colors.green,
           onPressed: (){
             deleteData();
@@ -80,10 +86,9 @@ void initState(){
           }),
           new MaterialButton(
             child: new Text("KEMBALI",
-            style: new TextStyle(color: Colors.black),),
+            style: new TextStyle(color: Colors.white),),
             color: Colors.green,
           onPressed: (){
-            deleteData();
             Navigator.push(
               context, MaterialPageRoute(builder: (context) => new CartPage()),);
               
@@ -104,7 +109,7 @@ void initState(){
       actions: <Widget>[
         new MaterialButton(
           child: new Text("Update",
-          style: new TextStyle(color: Colors.black),),
+          style: new TextStyle(color: Colors.white),),
             color: Colors.green,
           
           onPressed: (){
@@ -149,13 +154,15 @@ void initState(){
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     new MaterialButton(
-                      child: new Text("EDIT "),
+                      child: new Text("EDIT ",
+                      style: TextStyle(color: Colors.white),),
                       color: Colors.green,
                       onPressed: () => editSize(),
                       ),
                       SizedBox(width: 20,),
                       new MaterialButton(
-                      child: new Text("HAPUS "),
+                      child: new Text("HAPUS ",
+                      style: TextStyle(color: Colors.white),),
                       color: Colors.green,
                       onPressed: () => confirm(),
                       ),

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'register.dart';
 import 'main_page.dart';
+import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   @override
@@ -144,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                             onPressed: () {
                               String username = txtUsername.text;
                               String password = txtPassword.text;
-                              if (username == "admin" && password == "admin") {
+                              if (username == "noorman" && password == "admin") {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
